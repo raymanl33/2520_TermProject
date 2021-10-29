@@ -60,7 +60,7 @@ let remindersController = {
       }
     }
     console.log(database.cindy.reminders)
-    res.redirect("/reminders");
+    res.redirect(`/reminder/${reminderToFind}`);
   },
 
   delete: (req, res) => {
