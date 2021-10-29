@@ -64,10 +64,14 @@ let remindersController = {
   },
 
   delete: (req, res) => {
-    // Implement this code
+    let reminderToFind = req.params.id
+    const reminderDatbaseID = Number(reminderToFind) - 1
+    if (Number(reminderToFind) === database['cindy'].reminders[reminderDatbaseID]['id']) {
+      database.cindy.reminders.splice(reminderDatbaseID, 1)
+    }
+    console.log(database)
     res.redirect("/reminders");
   },
-    
 };
 
 module.exports = remindersController;

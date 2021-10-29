@@ -1,7 +1,8 @@
 Oct 28th (First Sprint Complete)
 Raymond Lee:
 I worked on the following tasks:
-1.  added edit feature - This task is responsible for editing selected reminder and update the database with any changes.
+1. added edit feature - This task is responsible for editing selected reminder and update the database with any changes.
+2. added delete feature - This task is responsible for deleting selected reminder and remove from the database 
 
 I also needed to research on Youtube and Google the following things:
 1. https://www.youtube.com/watch?v=DIMr5-SSjIg
