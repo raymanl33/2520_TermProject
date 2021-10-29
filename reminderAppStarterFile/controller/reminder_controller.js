@@ -41,12 +41,33 @@ let remindersController = {
   },
 
   update: (req, res) => {
-    // implement this code
+    let reminderToFind = req.params.id
+    const reminderDatbaseID = Number(reminderToFind) - 1
+    console.log(reminderToFind)
+    let editData = {
+      title: req.body.title,
+      description: req.body.description,
+      completed: req.body.completed,
+    };
+    console.log(database['cindy'].reminders[reminderDatbaseID]['id'])
+    if (Number(reminderToFind) === database['cindy'].reminders[reminderDatbaseID]['id']) {
+      database.cindy.reminders[reminderDatbaseID].title = editData.title
+      database.cindy.reminders[reminderDatbaseID].description = editData.description
+      if (editData.completed === 'false') {
+        database.cindy.reminders[reminderDatbaseID].completed = false
+      } else {
+        database.cindy.reminders[reminderDatbaseID].completed = true
+      }
+    }
+    console.log(database.cindy.reminders)
+    res.redirect("/reminders");
   },
 
   delete: (req, res) => {
     // Implement this code
+    res.redirect("/reminders");
   },
+    
 };
 
 module.exports = remindersController;
