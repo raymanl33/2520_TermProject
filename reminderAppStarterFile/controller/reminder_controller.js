@@ -42,10 +42,19 @@ let remindersController = {
 
   update: (req, res) => {
     // implement this code
+    let 
   },
 
   delete: (req, res) => {
     // Implement this code
+    let reminder = {
+      id: database.cindy.reminders.length,
+      title: req.body.title,
+      description: req.body.description,
+      completed: false,
+    };
+    database.cindy.reminders.pop(reminder);
+    res.redirect("/reminders")
   },
 };
 
