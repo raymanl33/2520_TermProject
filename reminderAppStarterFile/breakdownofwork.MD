@@ -17,3 +17,5 @@ I worked on the following tasks:
   
   
 Bill:
+I worked on the following tasks:
+    Watching the 'Let's build a reminder app' series
