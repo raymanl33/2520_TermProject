@@ -1,3 +1,4 @@
+const { cindy } = require("../database");
 let database = require("../database");
 
 let remindersController = {
@@ -42,7 +43,19 @@ let remindersController = {
 
   update: (req, res) => {
     // implement this code
-    let 
+    let reminderToFind = req.params.id;
+    let searchResult = database.cindy.reminders.find(function (reminder) {
+      return reminder.id == reminderToFind;
+    });
+    if (database.cindy.reminders.title != undefined) {
+      database.cindy.reminders.replace()
+    }
+    if (cindy.reminders.description != undefined) {
+      database.cindy.reminders.replace()
+    }else {
+      res.render("reminder/edit",{ reminders: database.cindy.reminders })
+    }
+    res.render("reminder/edit", { reminderItem: searchResult });
   },
 
   delete: (req, res) => {
