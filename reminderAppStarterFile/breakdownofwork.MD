@@ -13,7 +13,7 @@ I also needed to research on Youtube and Google the following things:
 
 David:
 I worked on the following tasks:
-
+Watching the Let's build a reminder App
   
   
 Bill:
