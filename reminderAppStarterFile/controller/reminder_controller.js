@@ -27,6 +27,9 @@ let remindersController = {
 
   create: (req, res) => {
     const userData = Number(req.user.id) - 1
+    if (userData < 0) {
+      userData = 0
+    }
     console.log(database[userData].reminders)
     let reminder = {
       id: database[userData].reminders.length + 1,

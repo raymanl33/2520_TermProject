@@ -29,12 +29,23 @@ let Database = [
   ];
   
   const userModel = {
-    findOne: (email) => {
+    findOne: (email, password) => {
+      let DatabaseID = Database.length + 1
       const user = Database.find((user) => user.email === email);
       if (user) {
         return user;
       }
-      throw new Error(`Couldn't find user with email: ${email}`);
+      Database.push({
+        id: DatabaseID,
+        name: email,
+        email: email,
+        password: password,
+        reminders: [{}]
+      })
+      console.log(Database)
+
+      return email
+      // throw new Error(`Couldn't find user with email: ${email}`);
     },
     findById: (id) => {
       const user = Database.find((user) => user.id === id);

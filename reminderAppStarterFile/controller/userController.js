@@ -2,7 +2,7 @@ const userModel = require("../database").userModel;
 const database = require("../database").Database;
 
 const getUserByEmailIdAndPassword = (email, password) => {
-  let user = userModel.findOne(email);
+  let user = userModel.findOne(email, password);
   if (user) {
     if (isUserValid(user, password)) {
       return user;
