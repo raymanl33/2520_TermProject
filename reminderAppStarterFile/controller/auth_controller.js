@@ -1,3 +1,4 @@
+const expressEjsLayouts = require("express-ejs-layouts");
 let database = require("../database");
 
 let authController = {

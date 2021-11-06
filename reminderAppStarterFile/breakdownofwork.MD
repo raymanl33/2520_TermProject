@@ -19,3 +19,13 @@ Watching the Let's build a reminder App
 Bill:
 I worked on the following tasks:
     Watching the 'Let's build a reminder app' series
+
+
+
+Nov 9th (Second Sprint Complete)
+Raymond Lee:
+I worked on the following tasks:
+1. I changed the overall layoout of the database - This task is responsible for the database to work with the log in feature.
+
+I also needed to research on Youtube and Google the following things:
+1. https://www.youtube.com/watch?v=Dn8LR-iR13U&t=1s

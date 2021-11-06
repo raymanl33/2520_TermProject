@@ -1,11 +1,51 @@
-let Database = {
-    cindy: {
-        reminders: [{id: 1, title: "Web Term Project", description: "Deliverable 1 due next week", completed: false},
-                    {id: 2, title: "test", description: "testtest", completed: false}]
-    },
-    alex: {
-        reminders: []
-    } 
-}
+// let Database = {
+//     cindy: {
+//         reminders: [{id: 1, title: "Web Term Project", description: "Deliverable 1 due next week", completed: false},
+//                     {id: 2, title: "test", description: "testtest", completed: false}]
+//     },
+//     alex: {
+//         reminders: []
+//     } 
+// }
 
-module.exports = Database;
+
+let Database = [
+    {
+      id: 1,
+      name: "Jimmy Smith",
+      email: "jimmy123@gmail.com",
+      password: "jimmy123!", 
+      reminders: [{id: 1, title: "Web Term Project", description: "Deliverable 1 due next week", completed: false},
+      {id: 2, title: "test", description: "testtest", completed: false}]
+    },
+    {
+      id: 2,
+      name: "Cindy Choi",
+      email: "cindy123@gmail.com",
+      password: "cindy123!",
+      reminders: [{id: 1, title: "Web Term Project", description: "Deliverable 1 due next week", completed: false},
+      {id: 2, title: "test", description: "testtest", completed: false}]
+    }
+  ];
+  
+  const userModel = {
+    findOne: (email) => {
+      const user = Database.find((user) => user.email === email);
+      if (user) {
+        return user;
+      }
+      throw new Error(`Couldn't find user with email: ${email}`);
+    },
+    findById: (id) => {
+      const user = Database.find((user) => user.id === id);
+      if (user) {
+        return user;
+      }
+      throw new Error(`Couldn't find user with id: ${id}`);
+    },
+  };
+  
+  module.exports = { Database, userModel };
+  
+
+// module.exports = Database;
