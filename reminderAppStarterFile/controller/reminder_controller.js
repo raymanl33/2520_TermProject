@@ -3,7 +3,9 @@ let userModel = require("../database").userModel;
 
 let remindersController = {
   list: (req, res) => {
-    res.render("reminder/index", { reminders: database[1].reminders });
+    console.log(req.user.id)
+    const userData = Number(req.user.id) - 1
+    res.render("reminder/index", { reminders: database[userData].reminders });
   },
 
   new: (req, res) => {
@@ -12,34 +14,35 @@ let remindersController = {
 
   listOne: (req, res) => {
     let reminderToFind = req.params.id;
-    // console.log(reminderToFind)
-    let searchResult = database[1].reminders.find(function (reminder) {
+    const userData = Number(req.user.id) - 1
+    let searchResult = database[userData].reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     });
     if (searchResult != undefined) {
       res.render("reminder/single-reminder", { reminderItem: searchResult });
     } else {
-      res.render("reminder/index", { reminders: database[1].reminders });
+      res.render("reminder/index", { reminders: database[userData].reminders });
     }
   },
 
   create: (req, res) => {
-    console.log(database[1].reminders)
+    const userData = Number(req.user.id) - 1
+    console.log(database[userData].reminders)
     let reminder = {
-      id: database[1].reminders.length + 1,
+      id: database[userData].reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
       completed: false,
     };
-    database[1].reminders.push(reminder);
-    // database[1].reminders targets Cindy Choi's database
+    database[userData].reminders.push(reminder);
     res.redirect("/reminders");
   },
 
   edit: (req, res) => {
     let reminderToFind = req.params.id;
     console.log(reminderToFind)
-    let searchResult = database[1].reminders.find(function (reminder) {
+    const userData = Number(req.user.id) - 1
+    let searchResult = database[userData].reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     });
     res.render("reminder/edit", { reminderItem: searchResult });
@@ -47,31 +50,33 @@ let remindersController = {
 
   update: (req, res) => {
     let reminderToFind = req.params.id
+    const userData = Number(req.user.id) - 1
     const reminderDatbaseID = Number(reminderToFind) - 1
     let editData = {
       title: req.body.title,
       description: req.body.description,
       completed: req.body.completed,
     };
-    console.log(database[1].reminders[reminderDatbaseID].id)
-    if (Number(reminderToFind) === database[1].reminders[reminderDatbaseID].id) {
-      database[1].reminders[reminderDatbaseID].title = editData.title
-      database[1].reminders[reminderDatbaseID].description = editData.description
+    console.log(database[userData].reminders[reminderDatbaseID].id)
+    if (Number(reminderToFind) === database[userData].reminders[reminderDatbaseID].id) {
+      database[userData].reminders[reminderDatbaseID].title = editData.title
+      database[userData].reminders[reminderDatbaseID].description = editData.description
       if (editData.completed === 'false') {
-        database[1].reminders[reminderDatbaseID].completed = false
+        database[userData].reminders[reminderDatbaseID].completed = false
       } else {
-        database[1].reminders[reminderDatbaseID].completed = true
+        database[userData].reminders[reminderDatbaseID].completed = true
       }
     }
-    console.log(database[1].reminders)
+    console.log(database[userData].reminders)
     res.redirect(`/reminder/${reminderToFind}`);
   },
 
   delete: (req, res) => {
+    const userData = Number(req.user.id) - 1
     let reminderToFind = req.params.id
     const reminderDatbaseID = Number(reminderToFind) - 1
-    if (Number(reminderToFind) === database[1].reminders[reminderDatbaseID].id) {
-      database[1].reminders.splice(reminderDatbaseID, 1)
+    if (Number(reminderToFind) === database[userData].reminders[reminderDatbaseID].id) {
+      database[userData].reminders.splice(reminderDatbaseID, 1)
     }
     console.log(database)
     res.redirect("/reminders");

@@ -23,7 +23,7 @@ let Database = [
       name: "Cindy Choi",
       email: "cindy123@gmail.com",
       password: "cindy123!",
-      reminders: [{id: 1, title: "Web Term Project", description: "Deliverable 1 due next week", completed: false},
+      reminders: [{id: 1, title: "Networking Term Project", description: "Milestone3 due next week", completed: false},
       {id: 2, title: "test", description: "testtest", completed: false}]
     }
   ];

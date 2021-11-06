@@ -26,6 +26,7 @@ Nov 9th (Second Sprint Complete)
 Raymond Lee:
 I worked on the following tasks:
 1. I changed the overall layoout of the database - This task is responsible for the database to work with the log in feature.
+2. I added the login and logout feature - This task is responsible for ensuring use is able to login and logout using their own account.
 
 I also needed to research on Youtube and Google the following things:
 1. https://www.youtube.com/watch?v=Dn8LR-iR13U&t=1s
