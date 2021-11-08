@@ -15,8 +15,7 @@ router.post(
 );
 
 
-router.get("/register", forwardAuthenticated, (req, res) => res.render("auth/register"));
-
+router.get("/register", ensureAuthenticated, (req, res) => res.render("auth/register"));
 
 // router.post('/register', (req, res) => {
 //   console.log(req.body)
