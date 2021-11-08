@@ -5,14 +5,16 @@ const ejsLayouts = require("express-ejs-layouts");
 const session = require("express-session")
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
+require('dotenv').config()
 
 app.use(express.static(path.join(__dirname, "public")));
-
-// app.use(express.urlencoded({ extended: false }));
 
 app.use(ejsLayouts);
 
 app.set("view engine", "ejs");
+
+const port = process.env.PORT;
+const host = process.env.HOST;
 
 
 // Routes start here
@@ -77,8 +79,8 @@ app.get("/register", authController.register);
 app.post("/register", authController.registerSubmit);
 
 
-app.listen(3001, function () {
+app.listen(port, function () {
   console.log(
-    "Server running. Visit: localhost:3001/auth/login in your browser 🚀"
+    `Server running. Visit: ${host}:${port}/auth/login in your browser 🚀`
   );
 });
