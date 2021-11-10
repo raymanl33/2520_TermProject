@@ -31,3 +31,9 @@ I worked on the following tasks:
 
 I also needed to research on Youtube and Google the following things:
 1. https://www.youtube.com/watch?v=Dn8LR-iR13U&t=1s
+
+
+Nov 15th (Third Sprint Complete)
+Raymond Lee:
+I worked on the following tasks:
+1. I implemented the log in with Github - This task is responsible for allowing user to be able to login with Github into the reminders' app

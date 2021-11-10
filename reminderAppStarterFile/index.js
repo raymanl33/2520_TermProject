@@ -32,15 +32,23 @@ app.use(
   })
 );
 
-const passport = require("./middleware/passport");
+
+const passport_local = require("./middleware/passport").local_login;
+const passport_github = require("./middleware/passport").github;
 const authRoute = require("./routes/authRoute");
 const indexRoute = require("./routes/indexRoute");
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport_local.initialize());
+app.use(passport_local.session());
+app.use(passport_github.initialize());
+app.use(passport_github.session());
+
+
+
+
 
 app.use((req, res, next) => {
   console.log(`User details are: `);
@@ -76,7 +84,7 @@ app.use("/auth", authRoute)
 
 
 app.get("/register", authController.register);
-app.post("/register", authController.registerSubmit);
+app.post("/dashboard", authController.loginSubmit);
 
 
 app.listen(port, function () {

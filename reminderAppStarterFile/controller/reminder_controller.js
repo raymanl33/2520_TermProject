@@ -14,6 +14,7 @@ let remindersController = {
 
   listOne: (req, res) => {
     let reminderToFind = req.params.id;
+    console.log(reminderToFind)
     const userData = Number(req.user.id) - 1
     let searchResult = database[userData].reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
@@ -43,7 +44,6 @@ let remindersController = {
 
   edit: (req, res) => {
     let reminderToFind = req.params.id;
-    console.log(reminderToFind)
     const userData = Number(req.user.id) - 1
     let searchResult = database[userData].reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
@@ -78,6 +78,7 @@ let remindersController = {
     const userData = Number(req.user.id) - 1
     let reminderToFind = req.params.id
     const reminderDatbaseID = Number(reminderToFind) - 1
+    console.log(reminderDatbaseID)
     if (Number(reminderToFind) === database[userData].reminders[reminderDatbaseID].id) {
       database[userData].reminders.splice(reminderDatbaseID, 1)
     }

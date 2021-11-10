@@ -18,6 +18,14 @@ const getUserById = (id) => {
   return null;
 };
 
+const getUserByUser = (username) => {
+  let user = userModel.findByUser(username)
+  if (user) {
+    return user;
+  }
+  return null;
+};
+
 function isUserValid(user, password) {
   return user.password === password;
 }
@@ -25,4 +33,5 @@ function isUserValid(user, password) {
 module.exports = {
   getUserByEmailIdAndPassword,
   getUserById,
+  getUserByUser,
 };
