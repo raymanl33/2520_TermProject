@@ -2,6 +2,7 @@ let Database = [
     {
       id: 1,
       name: "Jimmy Smith",
+      role: 'user',
       email: "jimmy123@gmail.com",
       password: "jimmy123!", 
       reminders: [{id: 1, title: "Web Term Project", description: "Deliverable 1 due next week", completed: false},
@@ -14,6 +15,14 @@ let Database = [
       password: "cindy123!",
       reminders: [{id: 1, title: "Networking Term Project", description: "Milestone3 due next week", completed: false},
       {id: 2, title: "test", description: "testtest", completed: false}]
+    },
+    {
+      id: 3,
+      name: "Raymond Lee",
+      role: 'admin',
+      email: 'raymanl33@icloud.com',
+      password: "raymond123",
+      reminders: [{}]
     }
   ];
   
@@ -27,6 +36,7 @@ let Database = [
       Database.push({
         id: DatabaseID,
         name: '',
+        role: 'user',
         email: email,
         password: password,
         reminders: [{}]
@@ -52,6 +62,7 @@ let Database = [
       Database.push({
         id: DatabaseID,
         name: username,
+        role: 'user',
         email: 'Login with Github',
         password: 'Login with Github',
         reminders: [{}]
