@@ -11,6 +11,7 @@ let Database = [
     {
       id: 2,
       name: "Cindy Choi",
+      role: 'user',
       email: "cindy123@gmail.com",
       password: "cindy123!",
       reminders: [{id: 1, title: "Networking Term Project", description: "Milestone3 due next week", completed: false},
