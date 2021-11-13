@@ -85,6 +85,7 @@ app.use("/auth", authRoute)
 
 app.get("/register", authController.register);
 app.post("/dashboard", authController.loginSubmit);
+app.post("/admin", authController.admin)
 
 
 app.listen(port, function () {

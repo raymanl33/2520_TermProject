@@ -31,14 +31,13 @@ router.get('/github/callback',
 
 
 
-router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  res.render("dashboard", {
-    user: req.user,
-  });
-});
 
 
-router.get("/register", ensureAuthenticated, (req, res) => res.render("auth/register"));
+
+
+
+
+
 
 
 

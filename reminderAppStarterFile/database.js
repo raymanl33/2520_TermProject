@@ -19,10 +19,10 @@ let Database = [
   },
   {
     id: 3,
-    name: "Raymond Lee",
+    name: "Bill Lee",
     role: 'admin',
-    email: 'raymanl33@icloud.com',
-    password: "raymond123",
+    email: 'bill123@icloud.com',
+    password: "bill123!",
     reminders: [{}]
   }
 ];

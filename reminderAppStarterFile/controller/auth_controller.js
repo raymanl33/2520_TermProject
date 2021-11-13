@@ -18,6 +18,9 @@ let authController = {
   registerSubmit: (req, res) => {
     // implement
   },
+  admin: (req, res) => {
+    res.render("/admin")
+  }
 
 };
 
