@@ -37,3 +37,6 @@ Nov 15th (Third Sprint Complete)
 Raymond Lee:
 I worked on the following tasks:
 1. I implemented the log in with Github - This task is responsible for allowing user to be able to login with Github into the reminders' app
+2. I created the admin page - This task is responsible for allowing admin users to view all the active sessions on the Reminders app.
+3. Inside the admin page I added some logic - This task is responsible for making the admin page more dynamic and print out many tags as many as the active sessions.
+

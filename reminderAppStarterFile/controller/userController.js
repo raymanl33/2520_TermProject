@@ -30,8 +30,25 @@ function isUserValid(user, password) {
   return user.password === password;
 }
 
+const isUserAdmin = (role) => { // this function checks if the person has a role of admin
+  return (req, res, next) => {
+    for (data in role) {
+      if (req.user.name === role[data].name){
+        
+        if (req.user.role === 'admin') {
+          next()
+        }
+      }
+  
+    }
+    // res.status(401)
+    // return res.send('Your are not an admin')
+  } 
+}
+
 module.exports = {
   getUserByEmailIdAndPassword,
   getUserById,
   getUserByUser,
+  isUserAdmin
 };

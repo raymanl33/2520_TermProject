@@ -21,8 +21,16 @@ let Database = [
     id: 3,
     name: "Bill Lee",
     role: 'admin',
-    email: 'bill123@icloud.com',
+    email: 'bill123@gmail.com',
     password: "bill123!",
+    reminders: [{}]
+  },
+  {
+    id: 4,
+    name: "Ryan Lee",
+    role: 'admin',
+    email: 'ryan123@gmail.com',
+    password: "ryan123!",
     reminders: [{}]
   }
 ];
