@@ -91,19 +91,8 @@ app.post("/admin", authController.admin)
 
 // destroy a specfic session 
 app.get("/destroy/:ID", (req, res) => {
-  req.sessionStore.all((err, sessions)=>{ 
-  const activeSessions = JSON.parse(JSON.stringify(sessions))
-  for (sessionID in activeSessions) {
-    if (req.params.ID === sessionID) {
-      
-      // console.log(req.session)
-      // console.log(req.params.ID)
-      // console.log(activeSessions)
-      activeSessions[sessionID].session.destroy() // doesnt work
-    }
-  }
-  
-  })
+  req.sessionStore.destroy(req.params.ID)
+  res.redirect('/admin')
 });
 
 app.listen(port, function () {

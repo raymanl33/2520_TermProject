@@ -25,7 +25,6 @@ router.get("/admin", ensureAuthenticated, findAdmin(adminDatabase), (req, res) =
       console.log(err)
     }
     const activeSessions = JSON.parse(JSON.stringify(sessions))
-    // console.log(activeSessions)
     for (ID in activeSessions) { // print out all the active session IDs
       console.log(activeSessions[ID])
       
@@ -33,12 +32,6 @@ router.get("/admin", ensureAuthenticated, findAdmin(adminDatabase), (req, res) =
     res.render("admin", {
     user: req.user.name,
     sessionID: activeSessions,
-    // revoke: revokeSession = () => { // destroy selected session
-    //   // document.querySelectorAll('a')
-    //   req.session.destroy()
-    //   console.log('triggered')
-      
-    // }
   });
 })
 });
