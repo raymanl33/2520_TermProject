@@ -30,17 +30,6 @@ router.get('/github/callback',
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
 router.post(
   "/register",
   passport.authenticate("local", {

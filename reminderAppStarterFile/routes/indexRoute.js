@@ -25,15 +25,24 @@ router.get("/admin", ensureAuthenticated, findAdmin(adminDatabase), (req, res) =
       console.log(err)
     }
     const activeSessions = JSON.parse(JSON.stringify(sessions))
+    // console.log(activeSessions)
     for (ID in activeSessions) { // print out all the active session IDs
-      console.log(ID)
+      console.log(activeSessions[ID])
+      
     }
     res.render("admin", {
     user: req.user.name,
-    sessionID: activeSessions
+    sessionID: activeSessions,
+    // revoke: revokeSession = () => { // destroy selected session
+    //   // document.querySelectorAll('a')
+    //   req.session.destroy()
+    //   console.log('triggered')
+      
+    // }
   });
 })
 });
+
 
 router.get("/register", ensureAuthenticated, (req, res) => res.render("auth/register"));
 

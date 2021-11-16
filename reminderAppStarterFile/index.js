@@ -37,6 +37,8 @@ const passport_local = require("./middleware/passport").local_login;
 const passport_github = require("./middleware/passport").github;
 const authRoute = require("./routes/authRoute");
 const indexRoute = require("./routes/indexRoute");
+const { cp } = require("fs");
+const { Store } = require("express-session");
 
 
 app.use(express.json());
@@ -87,6 +89,22 @@ app.get("/register", authController.register);
 app.post("/dashboard", authController.loginSubmit);
 app.post("/admin", authController.admin)
 
+// destroy a specfic session 
+app.get("/destroy/:ID", (req, res) => {
+  req.sessionStore.all((err, sessions)=>{ 
+  const activeSessions = JSON.parse(JSON.stringify(sessions))
+  for (sessionID in activeSessions) {
+    if (req.params.ID === sessionID) {
+      
+      // console.log(req.session)
+      // console.log(req.params.ID)
+      // console.log(activeSessions)
+      activeSessions[sessionID].session.destroy() // doesnt work
+    }
+  }
+  
+  })
+});
 
 app.listen(port, function () {
   console.log(

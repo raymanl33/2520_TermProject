@@ -34,15 +34,13 @@ const isUserAdmin = (role) => { // this function checks if the person has a role
   return (req, res, next) => {
     for (data in role) {
       if (req.user.name === role[data].name){
-        
         if (req.user.role === 'admin') {
           next()
         }
       }
-  
+      // return res.status(401).send('Your are not an admin')
     }
-    // res.status(401)
-    // return res.send('Your are not an admin')
+    // return res.status(401).send('Your are not an admin')
   } 
 }
 

@@ -30,7 +30,7 @@ const GitHub = new GitHubStrategy({
 },
 function(accessToken, refreshToken, profile, done) {
     // Check if User exists in the database
-  const user = userController.getUserByUser(profile.displayName);
+    const user = userController.getUserByUser(profile.displayName);
   return user
     ? done(null, user)
     : done(null, false, {
