@@ -40,3 +40,10 @@ I worked on the following tasks:
 2. I created the admin page - This task is responsible for allowing admin users to view all the active sessions on the Reminders app.
 3. Inside the admin page I added some logic - This task is responsible for making the admin page more dynamic and print out many tags as many as the active sessions.
 
+
+Nov 16th
+David:
+I worked on the following tasks:
+1. Watching the "Help with Github Authentication - Passport"
+2. Watching the "Uploading images to your application videos"
+  
