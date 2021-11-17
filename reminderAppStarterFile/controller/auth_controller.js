@@ -1,3 +1,4 @@
+const expressEjsLayouts = require("express-ejs-layouts");
 let database = require("../database");
 
 let authController = {
@@ -10,12 +11,17 @@ let authController = {
   },
 
   loginSubmit: (req, res) => {
-    // implement
+    // console.log(req)
+    res.render("/dashboard")
   },
 
   registerSubmit: (req, res) => {
     // implement
   },
+  admin: (req, res) => {
+    res.render("/admin")
+  }
+
 };
 
 module.exports = authController;
