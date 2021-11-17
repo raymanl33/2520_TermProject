@@ -2,6 +2,7 @@ let Database = [
   {
     id: 1,
     name: "Jimmy Smith",
+    ppi: '',
     role: 'user',
     email: "jimmy123@gmail.com",
     password: "jimmy123!", 
@@ -11,6 +12,7 @@ let Database = [
   {
     id: 2,
     name: "Cindy Choi",
+    ppi: '',
     role: 'user',
     email: "cindy123@gmail.com",
     password: "cindy123!",
@@ -20,6 +22,7 @@ let Database = [
   {
     id: 3,
     name: "Bill Lee",
+    ppi: '',
     role: 'admin',
     email: 'bill123@gmail.com',
     password: "bill123!",
@@ -28,6 +31,7 @@ let Database = [
   {
     id: 4,
     name: "Ryan Lee",
+    ppi: '',
     role: 'admin',
     email: 'ryan123@gmail.com',
     password: "ryan123!",
@@ -45,6 +49,7 @@ const userModel = {
     Database.push({
       id: DatabaseID,
       name: '',
+      ppi: '',
       role: 'user',
       email: email,
       password: password,
@@ -71,6 +76,7 @@ const userModel = {
     Database.push({
       id: DatabaseID,
       name: username,
+      ppi: '',
       role: 'user',
       email: 'Login with Github',
       password: 'Login with Github',
