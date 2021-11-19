@@ -1,3 +1,41 @@
 <h1 class="mt-4">Dashboard</h1>
 <p class="lead mb-3">Welcome <%= user %></p>
 <a href="/auth/logout" class="btn btn-secondary">Logout</a>
+
+<!--I added html code from here--> 
+<h2> Random Unsplash Image</h2>
+<div class="imageContainer">
+  <a id="imageLink" href="#">
+    <img alt="" id="unsplashImage"/>  
+ </a>
+</div>
+<!--I am not sure whether photo author should be cited or not? -->
+<!--if not necessary then erase line 14 here( if this comment line is 13) -->
+<p class="imageDetails">Photo by <a id="creator" href="#">NAME</a> on <a href="http://www.unsplash.com">Unsplash</a>!</p>
+
+<script>
+    //clientID not yet pasted
+    let clientID =// "<I will get it after i registed Unsplash>";
+    let endpoint = `http://api.unsplash.com/photos/?client_id=${clientID}`;
+    
+    let imageElement = document.querySelector("#unsplashImage");
+    let imageLink = document.querySelector("#imageLink");
+    let creator = document.querySelector("#creator");
+
+    fetch(endpoint)
+        .then((response) => response.json())  //I am not sure if there is a response.json file here
+        
+        .then((jsonData) => { //should I use database.js here ?
+            //here i used .thumb because i think the size is fit profile pic
+            imageElement.src = jsonData.urls.thumb;
+            imageLink.setAttribute("href", jsonData.links.html);
+
+            // if line 14 deleted then line 35 & 36 below no longer needed
+            creator.innerText = jsonData.user.name;
+            creator.setAttribute("href", jsonData.user.portfolio_url);
+        })
+        .catch((error) => {
+            console.log("Error: " + error);
+        });
+
+</script>
