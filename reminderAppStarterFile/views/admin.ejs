@@ -4,8 +4,7 @@
 <% for (ID in sessionID){ %>
     <p class="lead mb-3">Session ID: <%= ID %></p>
     <p class="lead mb-3">User ID: <%= sessionID[ID].passport.user %></p>
-    <a  href="/destroy/<%= ID %>" class="btn btn-primary" >Revoke Session</a>
-    
+    <a  href="/destroy/<%= ID %>" class="btn btn-primary" >Revoke Session</a>  
 <% } %>
 
 

@@ -5,13 +5,49 @@ const ejsLayouts = require("express-ejs-layouts");
 const session = require("express-session")
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
+// const helmet = require("helmet");
+const morgan = require("morgan");
+const multer = require("multer");
+const imgur = require("imgur");
+const cors = require("cors");
+const fs = require("fs");
 require('dotenv').config()
 
+const storage = multer.diskStorage({
+  destination: "./uploads",
+  filename: (req, file, callback) => {
+    callback(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+const upload = multer({
+  storage: storage,
+});
+
 app.use(express.static(path.join(__dirname, "public")));
-
 app.use(ejsLayouts);
-
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use(morgan("dev"));
+// app.use(helmet()); // uncomment other codes except this line
+app.use(express.json({ extended: false }));
+
+app.use(upload.any());
+
+app.post("/uploads/", async (req, res) => {
+  const file = req.files[0];
+  try {
+    const url = await imgur.uploadFile(`./uploads/${file.filename}`);
+    res.json({ message: url.data.link });
+    fs.unlinkSync(`./uploads/${file.filename}`);
+  } catch (error) {
+    console.log("error", error);
+  }
+});
+
 
 const port = process.env.PORT;
 const host = process.env.HOST;
@@ -42,7 +78,7 @@ const { Store } = require("express-session");
 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 app.use(passport_local.initialize());
 app.use(passport_local.session());
 app.use(passport_github.initialize());
