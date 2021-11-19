@@ -40,6 +40,7 @@ I worked on the following tasks:
 2. I created the admin page - This task is responsible for allowing admin users to view all the active sessions on the Reminders app.
 3. Inside the admin page I added some logic - This task is responsible for making the admin page more dynamic and print out many tags as many as the active sessions.
 
+<<<<<<< HEAD
 Nov 22nd (Fourth Sprint Complete)
 Raymond Lee:
 I worked on the following tasks:
@@ -47,3 +48,12 @@ I worked on the following tasks:
 I also needed to research on Youtube and Google the following things:
 https://www.loom.com/share/b40cb03ad14f46169b483d446a3828cb
 https://www.loom.com/share/ebbfb6892aa64d5db1dc81f5a43c6921
+=======
+
+Nov 16th
+David:
+I worked on the following tasks:
+1. Watching the "Help with Github Authentication - Passport"
+2. Watching the "Uploading images to your application videos"
+  
+>>>>>>> b911914f7613388f732cf25a2bbeee4c538928a0
