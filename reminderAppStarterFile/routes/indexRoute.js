@@ -33,7 +33,13 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
           url: req.user.ppi
         });
       })      
+  } else if (req.user.ppi != '') {
+    res.render('dashboard', {
+      user: req.user.name,
+      url: req.user.ppi
+    });
   }
+  
 });
 
 router.get("/admin", ensureAuthenticated, findAdmin(adminDatabase), (req, res) => { 

@@ -45,7 +45,14 @@ router.get('/github/callback',
             url: req.user.ppi
           });
         })      
+    } else if (req.user.ppi != '') {
+      res.render('dashboard', {
+      user: req.user.name,
+      url: req.user.ppi
+    });
+
     }
+    
  
   });
 
