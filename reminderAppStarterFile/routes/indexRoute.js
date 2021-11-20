@@ -16,6 +16,7 @@ router.get("/reminders", ensureAuthenticated, (req, res) => {
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
   res.render("dashboard", {
     user: req.user.name,
+    url: req.user.ppi
   });
 });
 
@@ -37,7 +38,8 @@ router.get("/admin", ensureAuthenticated, findAdmin(adminDatabase), (req, res) =
 });
 
 
-router.get("/register", ensureAuthenticated, (req, res) => res.render("auth/register"));
+
+router.get("/register", (req, res) => res.render("auth/register"));
 
 
 module.exports = router;

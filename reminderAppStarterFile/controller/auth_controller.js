@@ -7,7 +7,7 @@ let authController = {
   },
 
   register: (req, res) => {
-    res.render("auth/register");
+    res.render("/register");
   },
 
   loginSubmit: (req, res) => {

@@ -41,7 +41,8 @@ app.post("/uploads/", async (req, res) => {
   const file = req.files[0];
   try {
     const url = await imgur.uploadFile(`./uploads/${file.filename}`);
-    res.json({ message: url.data.link });
+    console.log(url.link)
+    res.json({ message: url.link });
     fs.unlinkSync(`./uploads/${file.filename}`);
   } catch (error) {
     console.log("error", error);
@@ -124,6 +125,7 @@ app.use("/auth", authRoute)
 app.get("/register", authController.register);
 app.post("/dashboard", authController.loginSubmit);
 app.post("/admin", authController.admin)
+
 
 // destroy a specfic session 
 app.get("/destroy/:ID", (req, res) => {
