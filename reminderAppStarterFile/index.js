@@ -39,24 +39,6 @@ app.use(express.json({ extended: false }));
 app.use(upload.any());
 
 
-
-// app.post("/uploads/", async (req, res) => {
-//   const file = req.files[0];
-//   try {
-//     const url = await imgur.uploadFile(`./uploads/${file.filename}`);
-//     console.log(url.link)
-//     database[0].ppi = url.link
-//     console.log(app.locals.user)
-//     console.log(database[0])
-//     res.json({ message: url.link });
-//     fs.unlinkSync(`./uploads/${file.filename}`);
-   
-//   } catch (error) {
-//     console.log("error", error);
-//   }
-// });
-
-
 const port = process.env.PORT;
 const host = process.env.HOST;
 
