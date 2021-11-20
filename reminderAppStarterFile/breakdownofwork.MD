@@ -44,10 +44,12 @@ Nov 22nd (Fourth Sprint Complete)
 Raymond Lee:
 I worked on the following tasks:
 1. I implemented the upload profile picture - This task is responsible for allowing user to be able to upload profile picture on the Dashboard page.
+2. I implemented the generate random profile picture - This task is responsible for generating a random profile picture if the current user has no profile picture using UnsplashAPI.
 
 I also needed to research on Youtube and Google the following things:
 https://www.loom.com/share/b40cb03ad14f46169b483d446a3828cb
 https://www.loom.com/share/ebbfb6892aa64d5db1dc81f5a43c6921
+https://www.youtube.com/watch?v=e8p1zSNmK7Q
 
 Nov 16th
 David:
