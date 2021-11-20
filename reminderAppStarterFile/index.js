@@ -5,7 +5,8 @@ const ejsLayouts = require("express-ejs-layouts");
 const session = require("express-session")
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
-// const helmet = require("helmet");
+const database = require("./database").Database;
+
 const morgan = require("morgan");
 const multer = require("multer");
 const imgur = require("imgur");
@@ -32,22 +33,28 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan("dev"));
-// app.use(helmet()); // uncomment other codes except this line
+
 app.use(express.json({ extended: false }));
 
 app.use(upload.any());
 
-app.post("/uploads/", async (req, res) => {
-  const file = req.files[0];
-  try {
-    const url = await imgur.uploadFile(`./uploads/${file.filename}`);
-    console.log(url.link)
-    res.json({ message: url.link });
-    fs.unlinkSync(`./uploads/${file.filename}`);
-  } catch (error) {
-    console.log("error", error);
-  }
-});
+
+
+// app.post("/uploads/", async (req, res) => {
+//   const file = req.files[0];
+//   try {
+//     const url = await imgur.uploadFile(`./uploads/${file.filename}`);
+//     console.log(url.link)
+//     database[0].ppi = url.link
+//     console.log(app.locals.user)
+//     console.log(database[0])
+//     res.json({ message: url.link });
+//     fs.unlinkSync(`./uploads/${file.filename}`);
+   
+//   } catch (error) {
+//     console.log("error", error);
+//   }
+// });
 
 
 const port = process.env.PORT;
@@ -92,6 +99,7 @@ app.use(passport_github.session());
 app.use((req, res, next) => {
   console.log(`User details are: `);
   console.log(req.user);
+  app.locals.user = req.user
 
   console.log("Entire session object:");
   console.log(req.session);
@@ -100,6 +108,23 @@ app.use((req, res, next) => {
   console.log(req.session.passport);
   next();
 });
+
+
+app.post("/uploads/", async (req, res) => {
+  const file = req.files[0];
+  try {
+    const url = await imgur.uploadFile(`./uploads/${file.filename}`);
+    console.log(url.link)
+    database[Number(app.locals.user.id - 1)].ppi = url.link
+    res.json({ message: url.link });
+    fs.unlinkSync(`./uploads/${file.filename}`);
+   
+  } catch (error) {
+    console.log("error", error);
+  }
+});
+
+
 
 app.get("/reminders", reminderController.list);
 
@@ -124,6 +149,7 @@ app.use("/auth", authRoute)
 
 app.get("/register", authController.register);
 app.post("/dashboard", authController.loginSubmit);
+app.get("/dashboard", authController.loginSubmit)
 app.post("/admin", authController.admin)
 
 

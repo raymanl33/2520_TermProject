@@ -25,7 +25,8 @@ router.get('/github/callback',
     console.log(req.user.name)
     // Successful authentication, redirect to dashboard.
     res.render('dashboard', {
-      user: req.user.name
+      user: req.user.name,
+      url: req.user.ppi
     });
   });
 

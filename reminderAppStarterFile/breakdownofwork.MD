@@ -43,7 +43,7 @@ I worked on the following tasks:
 Nov 22nd (Fourth Sprint Complete)
 Raymond Lee:
 I worked on the following tasks:
-
+1. I implemented the upload profile picture - This task is responsible for allowing user to be able to upload profile picture on the Dashboard page.
 
 I also needed to research on Youtube and Google the following things:
 https://www.loom.com/share/b40cb03ad14f46169b483d446a3828cb
