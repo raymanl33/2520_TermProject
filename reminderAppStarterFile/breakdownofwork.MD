@@ -58,5 +58,19 @@ I worked on the following tasks:
 2. Watching the "Uploading images to your application videos"
 
 
+Nov 23th
+David:
+I worked on the following tasks:
+1. Studied how to display and generate a random picture with Unsplash API.
+2. Studied the critical points to do upload profile picture implementation. Such as transferring the user uploaded picture to a server and getting the response URL from the third-party database; therefore, we don't need tons of pictures in our database.
+3. Review the project organization of the project files. Solve some frequent errors via mocking a user to visit our platform. 
+4. Watched again the "Let's build a reminder app" part1,2,3 to concrete my knowledge of the project.d
 
-  
+Besides, I researched online and watched the video posted in intended to study which crucial thing helps accomplish the tasks this week. 
+
+A. https://www.loom.com/share/ebbfb6892aa64d5db1dc81f5a43c6921
+ (Uploading images to your application)
+B. https://www.youtube.com/watch?v=e8p1zSNmK7Q
+ (Displaying a Random Image Using the Unsplash API)
+C. https://www.youtube.com/watch?v=8DnlcAziaaE
+ (Unsplash API Random Images Generator in Javascript)

@@ -11,6 +11,7 @@ const unsplash_ID = process.env.UNSPLASH_ACCESS_KEY;
 const endpoint = `https://api.unsplash.com/photos/random/?client_id=${unsplash_ID}`
 const router = express.Router();
 
+// this line of code trigger first
 router.get("/login", forwardAuthenticated, (req, res) => res.render("auth/login"));
 
 router.post(
