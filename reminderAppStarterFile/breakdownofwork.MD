@@ -74,3 +74,15 @@ B. https://www.youtube.com/watch?v=e8p1zSNmK7Q
  (Displaying a Random Image Using the Unsplash API)
 C. https://www.youtube.com/watch?v=8DnlcAziaaE
  (Unsplash API Random Images Generator in Javascript)
+
+
+Nov 29th (Final Spring Complete)
+Raymond Lee: 
+I worked on the following tasks:
+1. create prisma to work with sqlite - This task is responsible for sqlite database set up, so we can remove 
+database.js and have the server links to sqlite instead.
+2. I renamed index.js to index.ts - This task is responsible for converting javascript to typescript to allow the program to be able to communicate with the database.
+
+I also needed to research on Youtube and Google the following things:
+https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres/
+https://www.prisma.io/docs/concepts/database-connectors/sqlite
