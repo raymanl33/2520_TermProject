@@ -16,7 +16,7 @@ require('dotenv').config()
 
 const storage = multer.diskStorage({
   destination: "./uploads",
-  filename: (req, file, callback) => {
+  filename: (req: any, file: any, callback: any) => {
     callback(
       null,
       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
@@ -79,7 +79,7 @@ app.use(passport_github.session());
 
 
 
-app.use((req, res, next) => {
+app.use((req: any, res: any, next: any) => {
   console.log(`User details are: `);
   console.log(req.user);
   app.locals.user = req.user
@@ -93,7 +93,7 @@ app.use((req, res, next) => {
 });
 
 
-app.post("/uploads/", async (req, res) => {
+app.post("/uploads/", async (req: any, res: any) => {
   const file = req.files[0];
   try {
     const url = await imgur.uploadFile(`./uploads/${file.filename}`);
@@ -137,7 +137,7 @@ app.post("/admin", authController.admin)
 
 
 // destroy a specfic session 
-app.get("/destroy/:ID", (req, res) => {
+app.get("/destroy/:ID", (req: any, res: any) => {
   req.sessionStore.destroy(req.params.ID)
   res.redirect('/admin')
 });
