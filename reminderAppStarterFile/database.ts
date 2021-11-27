@@ -1,3 +1,6 @@
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
+
 let Database = [
   {
     id: 1,
@@ -40,34 +43,49 @@ let Database = [
 ];
 
 const userModel = {
-  findOne: (email, password) => {
+  findOne: (email: string, password: string) => {
     let DatabaseID = Database.length + 1
     const user = Database.find((user) => user.email === email);
+    // const user = prisma.user.findUnique({ where: {email}});
     if (user) {
+      // const users = prisma.user.findMany();
+      // console.log(users)
       return user;
+    } else {
+      // console.log('no')
+      // const createdUser = prisma.user.create({ 
+      //   data: {
+      //     name: '', 
+      //     ppi: '',
+      //     role: 'user',
+      //     email: email, 
+      //     password: password,
+      // }
+      Database.push({
+        id: DatabaseID,
+        name: '',
+        ppi: '',
+        role: 'user',
+        email: email,
+        password: password,
+        reminders: [{}]
+      })
+    
     }
-    Database.push({
-      id: DatabaseID,
-      name: '',
-      ppi: '',
-      role: 'user',
-      email: email,
-      password: password,
-      reminders: [{}]
-    })
+    
     console.log(Database)
 
     return email
     // throw new Error(`Couldn't find user with email: ${email}`);
   },
-  findById: (id) => {
+  findById: (id: number) => {
     const user = Database.find((user) => user.id === id);
     if (user) {
       return user;
     }
     throw new Error(`Couldn't find user with id: ${id}`);
   },
-  findByUser: (username) => {
+  findByUser: (username: string) => {
     const user = Database.find((user) => user.name === username);
     if (user) {
       return user;
