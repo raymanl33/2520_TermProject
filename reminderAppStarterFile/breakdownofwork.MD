@@ -86,3 +86,19 @@ database.js and have the server links to sqlite instead.
 I also needed to research on Youtube and Google the following things:
 https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres/
 https://www.prisma.io/docs/concepts/database-connectors/sqlite
+
+Nov 30th 
+David:
+I worked on the following tasks:
+1. Studied how to create prisma and to link the server to sqlite. 
+2. I created a database branch to test the implemenation.
+
+I research online with the following source:
+1.
+https://www.youtube.com/watch?v=bSyDUIus3BA
+
+2.
+https://www.youtube.com/watch?v=ayp3tHEkRc0
+
+3.
+https://www.youtube.com/watch?v=RJpevpbC4YY
